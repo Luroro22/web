@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Del Sur - Proyectos</title>
+    <link rel="stylesheet" href="Styles.css">
+   <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery (solo necesario si usas Bootstrap 4) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="proyectos-page"> 
+    <style>
+        /* Estilo del botón fijo */
+        .whatsapp-button {
+          position: fixed;
+          bottom: 20px; /* Distancia desde la parte inferior */
+          right: 20px;   /* Distancia desde la izquierda */
+          background-color: #25D366; /* Color verde de WhatsApp */
+          color: white;
+          border-radius: 50%; /* Botón circular */
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          text-decoration: none;
+          z-index: 1000; /* Asegura que esté encima de otros elementos */
+          transition: transform 0.3s ease;
+        }
+    
+        .whatsapp-button:hover {
+          transform: scale(1.1); /* Pequeña animación al pasar el mouse */
+        }
+    
+        .whatsapp-button img {
+          width: 30px; /* Tamaño del icono */
+          height: 30px;
+        }
+      </style>
+      <a 
+      href="https://wa.me/5492915326236" 
+      target="_blank" 
+      class="whatsapp-button" 
+      aria-label="Chat en WhatsApp"
+    >
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+        alt="WhatsApp"
+      />
+    </a>
+    <style>
+        body{
+            background-color:#d5d5d5;
+        }
+    </style>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <a href="Index.html">
+                <img src="images/logo-Photoroom.png" alt="Logo de la Marca">
+                </a>
+            </div>
+            <div class="icons">
+                <a href="https://wa.me/5492915326236">
+                <img src="images/whatsapp.png">
+            </a><br>
+               <a href="https://www.instagram.com/casas.del.sur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                <img src="images/instagram.png">
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=casasddelsur@gmail.com">
+                <img src="images/gmail.png"></a>
+                
+            </div>
+
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-none d-md-block">
+            <div class="container-fluid">
+
+               
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a>
+                    </li>
+                    <li class="nav-item">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="productos.html">PRODUCTOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                            <li><a href="/htmlproductos/Drywall.html">Drywall</a></li>
+                            <li><a href="/htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                            <li><a href="/htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                            <li><a href="/htmlproductos/Zocalos.html">Zócalos</a></li>
+                            <li><a href="/htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                            <li><a href="/htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                            <li><a href="/htmlproductos/Chapas.html">Chapas</a></li>
+                            </ul>
+                        </li>   
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="proyectos.html">PROYECTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        <!-- Menú hamburguesa para pantallas pequeñas -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-block d-md-none">
+            <div class="container-fluid">
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú colapsado en móviles -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="proyectos.html">PROYECTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="galeria" class="image-grid2">
+
+            <!-- Tu grid de imágenes permanece igual -->
+            <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Fachada de Alucobond<span>
+                </div>
+                <img src="images/alucobond.png" alt="Imagen 1" class="main-image"
+                     data-images='["images/alucobond.png", "images/alucobond2.png", "images/alucobond3.png","images/alucobond4.png","images/alucobond5.png"]'
+                     data-title="Fachada Alucobond"
+                     onclick="openLightbox(this)">
+                 <div  class="overlay-text" onclick="openLightbox(this)">Obra Alucobond</div>
+            </div>
+    
+            <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Barra de Bar Casanova</span>
+                </div> 
+                <img src="images/Casasnova1.png" alt="Imagen 2" class="main-image"
+                     data-images='["images/Casasnova1.png", "images/Casasnova2.png", "images/Casasnova3.png", "images/Casasnova4.png"]'
+                     data-title="Barra De Bar Casanova"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova</div>
+            </div>
+    
+            <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Obra Lucciano's</span>
+                </div>
+                <img src="images/Lucciano1.jpg" alt="Imagen 3" class="main-image"
+                     data-images='["images/Lucciano1.jpg","images/Lucciano3.jpg","images/Lucciano5.jpg","images/Lucciano6.jpg","images/Lucciano7.jpg","images/Lucciano8.jpg" ]'
+                     data-title="Obra Lucciano's"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+            </div>
+            <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Obra Planeta Empanada</span>
+                </div>
+                <img src="images/planeta1.png" alt="Imagen 3" class="main-image"
+                     data-images='["images/planeta1.png","images/planeta2.png","images/planeta3.png"]'
+                     data-title="Obra Planeta Empanada"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+            </div>
+            <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Obra Urquiza</span>
+                </div>
+                <img src="images/Urquiza1.png" alt="Imagen 3" class="main-image"
+                     data-images='["images/Urquiza2.png","images/Urquiza3.png","images/urquiza4.png"]'
+                     data-title="Obra Urquiza"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+            </div>
+        </section>
+    
+        <!-- Lightbox Modal (actualizado) -->
+        <div id="lightbox" class="lightbox">
+            <!-- Barra superior para texto -->
+            <div class="lightbox-header">
+                <h2 id="lightbox-header-title"></h2>
+                <p id="lightbox-subtitle">Diseñado Y construido Por Casas Del Sur</p>
+            </div>
+            
+            <!-- Contenido principal -->
+            <div class="lightbox-content">
+                <img id="lightbox-image" src="" alt="Imagen ampliada">
+                <div id="lightbox-title" class="lightbox-title"></div>
+            </div>
+            
+            <!-- Navegación -->
+            <div class="navigation">
+                <button id="prev-button" onclick="navigate(-1)">&lt;</button>
+                <button id="next-button" onclick="navigate(1)">&gt;</button>
+            </div>
+            
+            <!-- Miniaturas -->
+            <div class="thumbnails" id="thumbnails">
+                <!-- Miniaturas generadas dinámicamente -->
+            </div>
+    
+            <!-- Botón para cerrar -->
+            <button id="close-button" onclick="closeLightbox()">&#10005;</button>
+        </div>
+        <script src="js/script.js"></script>
+    </main>
+    
+    
+    <footer>
+        <p>&copy; Casas Del Sur 2024</p>
+    </footer>
+</body>
+</html>
