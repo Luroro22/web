@@ -643,7 +643,7 @@ button:hover {
 /* Asegúrate de que la sección ocupe el ancho completo y mantenga proporciones */
 /* Contenedor principal del héroe */
 .hero-section {
-    width: 100vw; /* Ocupa todo el ancho de la pantalla */
+    width: 98.8vw; /* Ocupa todo el ancho de la pantalla */
     height: 100vh; /* Ocupa toda la altura de la ventana */
     background-image: url('images/Localfoto.jpg'); /* Ruta de tu imagen */
     background-size: cover; /* La imagen cubre el contenedor sin distorsionarse */
@@ -1365,6 +1365,12 @@ button:hover {
 
 /* Pantallas muy pequeñas (móviles) */
 @media (max-width: 480px) {
+    .hero-section{
+        width: 100%;
+    }
+    .grid-container{
+        margin-left: 8%;
+    }
     .card{
         width: 90%;
         height: auto;
