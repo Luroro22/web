@@ -1094,6 +1094,7 @@ button:hover {
 /* Pantallas pequeñas */
 @media (max-width: 768px) {
     .text-box {
+        display:none;
         width: 0%;
         position: absolute;
         top: 0%;
@@ -1104,28 +1105,7 @@ button:hover {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: default;
       }
-      
-      .text-box:hover {
-        transform: translateY(50%) scale(1.03); /* Solo crece, sin moverse hacia arriba */
-        box-shadow: 25px 25px 40px rgba(0, 0, 0, 0.6); /* sombra más profunda */
-      }
-      .text-box span {
-          width:0%;
-        position: relative;
-        display: inline-block;
-      }
-      
-      .text-box span::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 0.25em;
-        width: 0%;
-        background: red;
-        border-radius: 0px;
-        z-index: -1;
-      }
+    
     .image-grid2 {
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* 3 columnas iguales */
@@ -1477,6 +1457,18 @@ button:hover {
 
 /* Pantallas muy pequeñas (móviles) */
 @media (max-width: 480px) {
+     .text-box {
+        display:none;
+        width: 0%;
+        position: absolute;
+        top: 0%;
+        left: 3rem;
+       
+      
+        /* Transición suave para cambios de escala y sombra */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: default;
+      }
     .hero-section{
         width: 100%;
     }
