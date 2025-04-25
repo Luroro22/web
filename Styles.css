@@ -1094,18 +1094,11 @@ button:hover {
 /* Pantallas pequeñas */
 @media (max-width: 768px) {
     .text-box {
+        width: 0%;
         position: absolute;
-        top: 50%;
+        top: 0%;
         left: 3rem;
-        transform: translateY(70%); /* Solo se usa al inicio para centrar verticalmente */
-        background-color: white;
-        padding: 2rem 3rem;
-        max-width: 0px;
-        color: #333;
-        font-size: 50px;
-        clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 90%);
-        box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.5);
-        font-family: 'Poppins', sans-serif;
+       
       
         /* Transición suave para cambios de escala y sombra */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1117,6 +1110,7 @@ button:hover {
         box-shadow: 25px 25px 40px rgba(0, 0, 0, 0.6); /* sombra más profunda */
       }
       .text-box span {
+          width:0%;
         position: relative;
         display: inline-block;
       }
