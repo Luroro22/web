@@ -42,7 +42,21 @@ body {
     100% { transform: rotate(360deg); }
   }
   
-
+ /* Sección de marcas */
+ .marcas-section {
+    border-top: 1px solid #ddd;
+  }
+  
+  .brand-logo {
+    max-height: 60px;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+  }
+  
+  .brand-logo:hover {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 /* Header y su contenido */
 header {
     background-color: #d5d5d5;
