@@ -544,9 +544,8 @@ footer {
     bottom: 0;
     height: auto;
     width: 21%;
-    background: url('Images/logoBlur1left.png') no-repeat center center;
+    background: url('/images/logoBlur1left.png') no-repeat center center;
     background-size: contain;
-    
     filter: blur(4px);
     z-index: 1;
 }
@@ -560,7 +559,7 @@ footer {
     bottom: 0;
     height: auto;
     width: 25%;
-    background: url('Images/logobluright.png') no-repeat center center;
+    background: url('/images/logobluright.png') no-repeat center center;
     background-size: 120%;
     filter: blur(4px);
     z-index: 1;
@@ -964,7 +963,7 @@ button:hover {
 
   .image-grid3 {
     margin-top: 20px;
-    margin-left: 5%;
+    margin-left: 0%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
     gap: 50px;
