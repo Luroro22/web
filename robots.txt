@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://casasdelsur.onrender.com/sitemap.xml
