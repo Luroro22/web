@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Del Sur - Carrito</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        /* --- SOLUCIÓN FOOTER (Sticky Footer) --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        main {
+            flex: 1; 
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; 
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        /* --- FIN SOLUCIÓN FOOTER --- */
+
+        /* Contenedor del carrito */
+        .cart-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cart-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Tabla */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-table td img.cart-img {
+            width: 60px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Botón eliminar (Desktop) */
+        .remove-btn {
+            background: #eee;
+            border: none;
+            color: black;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .remove-btn:hover {
+            background: #ccc;
+        }
+
+        /* Inputs de cantidad */
+        .cart-table input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Acciones debajo de la tabla */
+        .cart-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebc59;
+        }
+
+        .btn-print {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-print:hover {
+            background: #222;
+        }
+
+        /* Estilo del botón fijo */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Estilo para el link "Eliminar" (móvil) */
+        .remove-link {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            padding: 8px;
+        }
+        .remove-link:hover {
+            color: #0056b3;
+        }
+
+        header .navbar .nav-link {
+            color: white;
+        }
+
+        header .navbar .nav-link:hover {
+            color: gray;
+        }
+
+        /* CSS RESPONSIVO PARA EL CARRITO */
+        @media (max-width: 768px) {
+            .cart-container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .cart-table thead {
+                display: none;
+            }
+
+            .cart-table, 
+            .cart-table tbody, 
+            .cart-table tr, 
+            .cart-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .cart-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                position: relative; 
+            }
+
+            .cart-table td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                text-align: right;
+                position: relative;
+                padding-left: 40%;
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .cart-table td:last-child {
+                border-bottom: none;
+            }
+
+            .cart-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-weight: bold;
+                text-align: left;
+                color: #333;
+            }
+
+            /* La FOTO (1er elemento) */
+            .cart-table td:nth-child(1) { 
+                justify-content: center;
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            .cart-table td:nth-child(1)::before {
+                display: none;
+            }
+
+            /* El link "Eliminar" (3er elemento) */
+            .cart-table td:nth-child(3) {
+                justify-content: center;
+                padding-left: 0;
+                border-bottom: none;
+            }
+            .cart-table td:nth-child(3)::before {
+                display: none;
+            }
+
+            .cart-table td img.cart-img {
+                width: 100px; 
+                height: auto;
+            }
+
+            /* Botones de acción apilados */
+            .cart-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-whatsapp, .btn-print {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/5492915326236" target="_blank" class="whatsapp-button" aria-label="Chat en WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+
+    <header>
+        <div class="header-top d-none d-md-flex">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo-Photoroom.png" alt="Logo de la Marca">
+                </a>
+            </div>
+            <div class="icons">
+                <a href="https://wa.me/5492915326236">
+                    <img src="images/whatsapp.png" alt="whatsapp">
+                </a><br>
+                <a href="https://www.instagram.com/casas.del.sur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                    <img src="images/instagram.png" alt="instagram">
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=casasddelsur@gmail.com">
+                    <img src="images/gmail.png" alt="gmail">
+                </a>
+            </div>
+            <style>
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 15px;
+                }
+                a:hover {
+                    color: gray;
+                }
+            </style>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-none d-md-block">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a></li>
+                    <li class="nav-item">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="productos.html">PRODUCTOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                                <li><a href="htmlproductos/Chapas.html">Chapas</a></li>
+                                <li><a href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                                <li><a href="htmlproductos/Drywall.html">Drywall</a></li>
+                                <li><a href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                                <li><a href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                                <li><a href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                                <li><a href="htmlproductos/Zocalos.html">Zocalos</a></li>
+                            </ul>
+                        </li>                     
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">PROYECTOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">CONTACTO</a></li>
+                </ul>
+            </div>
+            <nav class="d-none d-md-block">
+                <a href="carrito.html" class="carrito-nav">Carrito 🛒 (<span id="contador-carrito-desktop">0</span>)</a>
+            </nav>
+        </nav>
+
+        <nav class="navbar navbar-dark bg-dark d-block d-md-none">
+            <div class="container-fluid position-relative">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <a href="index.html" class="navbar-brand-mobile">
+                    <img src="images/logoempresa-Photoroom.png" alt="Logo de la Marca">
+                </a>
+
+                <a href="carrito.html" class="carrito-nav-mobile" aria-label="Carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM5 13.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm7 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    </svg>
+                    (<span id="contador-carrito-mobile" style="color: white; font-size: 0.9rem;">0</span>)
+                </a>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-start bg-dark text-light d-md-none" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel" style="color: white;">Menú</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a></li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link d-flex justify-content-between align-items-center" 
+                           href="#productosSubmenu" 
+                           data-bs-toggle="collapse" 
+                           role="button" 
+                           aria-expanded="false" 
+                           aria-controls="productosSubmenu">
+                           PRODUCTOS 
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                           </svg>
+                        </a>
+                        
+                        <div class="collapse" id="productosSubmenu">
+                            <ul class="navbar-nav ps-3">
+                                <li><a class="nav-link" href="productos.html">Ver Todos</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Chapas.html">Chapas</a></li>
+                                <li><a class="nav-link" href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Drywall.html">Drywall</a></li>
+                                <li><a class="nav-link" href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                                <li><a class="nav-link" href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                                <li><a class="nav-link" href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                                <li><a class="nav-link" href="htmlproductos/Zocalos.html">Zocalos</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="proyectos.html">PROYECTOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">CONTACTO</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <h2>Tu Carrito</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Eliminar</th>
+                        <th>Foto</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+            </table>
+
+            <div class="cart-actions">
+                <a id="whatsapp-btn" class="btn-whatsapp" href="#" target="_blank">📱 Pedir presupuesto por WhatsApp</a>
+                <button class="btn-print" onclick="imprimirOrden()">🖨️ Imprimir Presupuesto</button>
+            </div>
+        </div>
+    </main>
+
+    <iframe 
+        id="print-frame" 
+        style="position: absolute; left: -9999px; top: -9999px; width: 0; height: 0;"
+    ></iframe>
+
+    <footer>
+        <p>&copy; Casas Del Sur 2025</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartCountDesktop = document.getElementById("contador-carrito-desktop");
+        const cartCountMobile = document.getElementById("contador-carrito-mobile");
+        const whatsappBtn = document.getElementById("whatsapp-btn");
+
+        // --- OYENTES DE EVENTOS CONSOLIDADOS ---
+        cartItemsContainer.addEventListener('touchend', function(event) {
+            if (event.target.classList.contains('remove-link') || event.target.classList.contains('remove-btn')) {
+                event.preventDefault(); 
+                const index = parseInt(event.target.getAttribute('data-index'));
+                removeItem(index);
+            }
+        });
+
+        cartItemsContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-link') || event.target.classList.contains('remove-btn')) {
+                const index = parseInt(event.target.getAttribute('data-index'));
+                removeItem(index);
+            }
+        });
+
+        cartItemsContainer.addEventListener('change', function(event) {
+            if (event.target.classList.contains('quantity-input')) {
+                const index = parseInt(event.target.getAttribute('data-index'));
+                const value = event.target.value;
+                updateQuantity(index, value);
+            }
+        });
+
+        // --- FUNCIÓN DE RENDERIZADO CON CORRECCIÓN DE IMÁGENES ---
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = "";
+            
+            // CORRECCIÓN: Usamos "images/" porque carrito.html está en la raíz.
+            const rutaBase = "images/"; 
+
+            if (window.innerWidth > 768) {
+                // Versión Desktop
+                cart.forEach((item, index) => {
+                    let nombreImagen = item.img.split('/').pop(); 
+                    let imagenFinal = rutaBase + nombreImagen;
+
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td data-label="Eliminar"><button class="remove-btn" data-index="${index}">X</button></td>
+                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img" alt="${item.name}"></td>
+                        <td data-label="Producto">${item.name}</td>
+                        <td data-label="Cantidad">
+                            <input type="number" class="quantity-input" min="1" value="${item.quantity}" data-index="${index}">
+                        </td>
+                    `;
+                    cartItemsContainer.appendChild(row);
+                });
+            
+            } else {
+                // Versión Móvil
+                cart.forEach((item, index) => {
+                    let nombreImagen = item.img.split('/').pop(); 
+                    let imagenFinal = rutaBase + nombreImagen;
+
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td data-label="Foto"><img src="${imagenFinal}" class="cart-img" alt="${item.name}"></td>
+                        <td data-label="Producto">${item.name}</td>
+                        <td data-label="">
+                            <span class="remove-link" data-index="${index}">
+                                Eliminar
+                            </span>
+                        </td>
+                        <td data-label="Cantidad">
+                            <input type="number" class="quantity-input" min="1" value="${item.quantity}" data-index="${index}">
+                        </td>
+                    `;
+                    cartItemsContainer.appendChild(row);
+                });
+            }
+
+            // Actualizar contadores y link de WhatsApp
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            if (cartCountDesktop) cartCountDesktop.textContent = totalItems;
+            if (cartCountMobile) cartCountMobile.textContent = totalItems;
+            
+            const message = cart.map(i => `-  ${i.name} x ${i.quantity}`).join("%0A");
+            const phone = "5492915326236"; 
+            whatsappBtn.href = `https://wa.me/${phone}?text=Hola,%20quiero%20un%20presupuesto%20con:%0A${message}`;
+        }
+
+        // --- FUNCIONES DEL CARRITO ---
+
+        function removeItem(index) {
+            if (cart[index] === undefined) {
+                 return;
+            }
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function updateQuantity(index, value) {
+            if (cart[index]) { 
+                cart[index].quantity = parseInt(value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        }
+
+        // --- FUNCIÓN DE IMPRESIÓN CON RETARDO ---
+
+        function imprimirOrden() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            if (cart.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+
+            const iframe = document.getElementById('print-frame');
+            iframe.src = 'orden.html'; 
+
+            iframe.onload = function() {
+                try {
+                    const printDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    const listContainer = printDoc.getElementById('lista-productos'); 
+                    
+                    if (!listContainer) {
+                        console.error("No se encontró el 'div' con id 'lista-productos' en orden.html");
+                        alert("Error al preparar la impresión. Revisa la plantilla 'orden.html'.");
+                        return;
+                    }
+                    
+                    listContainer.innerHTML = ""; 
+
+                    cart.forEach(item => {
+                        const row = printDoc.createElement('div');
+                        row.className = 'product-row'; 
+                        row.innerHTML = `
+                            <span class="product-name">${item.name}</span>
+                            <span class="product-quantity">${item.quantity}</span>
+                        `; 
+                        listContainer.appendChild(row);
+                    });
+
+                    // --- RETARDO DE 1 SEGUNDO (1000 ms) ---
+                    setTimeout(function() {
+                        iframe.contentWindow.focus();
+                        iframe.contentWindow.print();
+                    }, 1000);
+
+                } catch (error) {
+                    console.error("Error al imprimir:", error);
+                    alert("Ocurrió un error al generar el presupuesto. " + error.message);
+                }
+            };
+        }
+
+        // --- LLAMADAS INICIALES ---
+        renderCart();
+        window.addEventListener('resize', renderCart);
+    </script>
+</body>
+</html>

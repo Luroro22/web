@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Orden de Presupuesto - Casas Del Sur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        .header img {
+            max-width: 200px; 
+            /* He quitado la propiedad src de aquí porque en CSS no existe y daba error, 
+               la imagen se carga abajo en el HTML */
+        }
+        .header-info p {
+            margin: 0;
+            text-align: right;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        /* 🔽 --- ESTILOS DE LISTA --- 🔽 */
+        
+        .product-list {
+            width: 100%;
+            margin-top: 25px;
+        }
+        
+        /* Contenedor de la cabecera (Descripción / Cantidad) */
+        .product-header {
+            display: flex; 
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Contenedor de cada fila de producto */
+        .product-row {
+            display: flex; 
+            padding: 8px 0;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .product-name {
+            width: 75%; 
+            text-align: left;
+            padding-right: 10px; 
+        }
+        .product-quantity {
+            width: 25%; 
+            text-align: right; 
+        }
+
+        /* 🔼 --- FIN DE ESTILOS MODIFICADOS --- 🔼 */
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="images/logo-Photoroom.png" alt="Logo Casas Del Sur">
+            <div class="header-info">
+                <p><strong>Casas Del Sur</strong></p>
+                <p>Email: casasddelsur@gmail.com</p>
+                <p>Tel: +54 9 291 532-6236</p>
+            </div>
+        </div>
+
+        <h1>Solicitud de Presupuesto</h1>
+        
+        <div class="product-list">
+            
+            <div class="product-header">
+                <span class="product-name">Descripción</span>
+                <span class="product-quantity">Cantidad</span>
+            </div>
+
+            <div id="lista-productos">
+                <div class="product-row">
+                    <span class="product-name">Cargando...</span>
+                    <span class="product-quantity"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>Este documento no es una factura. Presupuesto sujeto a confirmación.</p>
+            <p>&copy; Casas Del Sur 2025</p>
+        </div>
+    </div>
+</body>
+</html>
