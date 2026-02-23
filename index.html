@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5ZQNFR57');</script>
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5ZQNFR57');</script>
     <meta charset="UTF-8">
     <meta name="description" content="Casasdelsur empresa de construccion en seco que tiene años de experiencia y mucho conocimiento y confianza.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,67 +14,155 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-   
-
 </head>
 <body class="d-flex flex-column min-vh-100"> 
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQNFR57"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>
-                     .agregar-container {
-  margin-left: 35%;
-  display: flex;
-  align-items: center;
-  gap: 30px; /* Espacio entre input y botón */
-  margin-top: 10px;
-}
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-.cantidad-input {
-  width: 60px;
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-        /* Estilo del botón fijo */
+    <div class="bg-warning text-dark text-center py-2 fw-bold w-100" style="font-size: 0.95rem; z-index: 1050; position: relative;">
+        ✨ ¡Nuevo! Elegí los materiales y armá tu presupuesto online al instante.
+    </div>
+
+    <style>
+        .agregar-container {
+            margin-left: 35%;
+            display: flex;
+            align-items: center;
+            gap: 30px; 
+            margin-top: 10px;
+        }
+
+        .cantidad-input {
+            width: 60px;
+            padding: 5px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
         .whatsapp-button {
-          position: fixed;
-          bottom: 20px; /* Distancia desde la parte inferior */
-          right: 20px;   /* Distancia desde la izquierda */
-          background-color: #25D366; /* Color verde de WhatsApp */
-          color: white;
-          border-radius: 50%; /* Botón circular */
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          text-decoration: none;
-          z-index: 1000; /* Asegura que esté encima de otros elementos */
-          transition: transform 0.3s ease;
+            position: fixed;
+            bottom: 20px; 
+            right: 20px;   
+            background-color: #25D366; 
+            color: white;
+            border-radius: 50%; 
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            z-index: 1000; 
+            transition: transform 0.3s ease;
         }
     
         .whatsapp-button:hover {
-          transform: scale(1.1); /* Pequeña animación al pasar el mouse */
+            transform: scale(1.1); 
         }
     
         .whatsapp-button img {
-          width: 30px; /* Tamaño del icono */
-          height: 30px;
+            width: 30px; 
+            height: 30px;
         }
-      </style>
-      <a 
-      href="https://wa.me/5492915326236" 
-      target="_blank" 
-      class="whatsapp-button" 
-      aria-label="Chat en WhatsApp"
-    >
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-        alt="WhatsApp"
-      />
+
+        /* Estilos para el overlay del video (Call to action) */
+        .content-wrapper {
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-overlay h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+        }
+
+        .hero-overlay p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            margin-bottom: 25px;
+        }
+
+        .btn-presupuesto {
+            background-color: #ffc107;
+            color: #000;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-presupuesto:hover {
+            background-color: #e0a800;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* ESTILOS PARA LA SECCIÓN ZIG-ZAG */
+        .zigzag-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .zigzag-img:hover {
+            transform: scale(1.02);
+        }
+
+        .zigzag-row {
+            margin-bottom: 5rem;
+        }
+        
+        .zigzag-text-container {
+            padding: 2rem;
+        }
+        
+        .zigzag-title {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .zigzag-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #ffc107;
+            border-radius: 2px;
+        }
+    </style>
+
+    <a href="https://wa.me/5492915326236" target="_blank" class="whatsapp-button" aria-label="Chat en WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"/>
     </a>
     
     <header>
@@ -96,22 +184,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
             </div>
             <style>
-                /* Estilo para los enlaces */
                 a {
-                    text-decoration: none; /* Quitar subrayado */
-                    color: white; /* Texto en negro */
-                    font-size: 15px; /* Ajusta el tamaño de la fuente */
+                    text-decoration: none; 
+                    color: white; 
+                    font-size: 15px; 
                 }
         
                 a:hover {
-                    color: gray; /* Cambia a gris al pasar el cursor */
+                    color: gray; 
                 }
             </style>
         </div>
   
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-none d-md-block">
         <div class="container-fluid">
-           
+            
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" href="index.html">INICIO</a>
@@ -144,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <nav class="d-none d-md-block">
             <a href="carrito.html" class="carrito-nav">Carrito 🛒 (<span id="contador-carrito-desktop">0</span>)</a>
-          </nav>
+        </nav>
     </nav> 
     
     <nav class="navbar navbar-dark bg-dark d-block d-md-none">
@@ -228,8 +315,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <style>
                 video {
                     width: 100%;
-                    border: 1px solid #000000; /* Borde de color azul */
+                    border: 1px solid #000000; 
                     box-sizing: border-box;
+                    display: block;
                 }
             </style>
             
@@ -238,106 +326,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 Tu navegador no soporta la reproducción de video.
             </video>
             
+            <div class="hero-overlay">
+                <h1>Construimos tus ideas</h1>
+                <p>Calculá el costo de tus materiales al instante.</p>
+                <a href="productos.html" class="btn-presupuesto">Armar mi Presupuesto</a>
+            </div>
+            
         </div>
         <div class="blurred-right"></div>
         </div>
-        <section id="inicio">
+
+        <section id="inicio" class="text-center py-5">
              <div class="texto">
-            <h2>Nos Especializamos en</h2>
+                <h2 class="display-5 fw-bold text-dark">Nos Especializamos en</h2>
+                <p class="text-muted lead">Soluciones integrales de alta calidad para cada etapa de tu obra.</p>
             </div>
-        </section><br>
-        <section id="galeria" class="image-grid">
-        
-         <div class="image-item">
-            <img src="images/construccionseco.png"  alt="Imagen 1">
-            
-               <p class="image-caption2">Construccion en Seco</p>
-        
-                     </div>
-        
-            <div class="image-item">
-            <img src="images/tabiques.png" alt="Imagen 2">
-             
-                 <p class="image-caption2">Steel Framing</p>
-        
-                    </div>
-        
-             <div class="image-item">
-            <img src="images/aislantes.png"  alt="Imagen 3">
-            
-                 <p class="image-caption2">Aislaciones</p>
-        
-                     </div>
+        </section>
 
-                <div class="image-item">
-            <img src="images/pvc.png" alt="Imagen 4">
+        <section id="servicios-zigzag" class="container pb-5">
             
-                 <p class="image-caption2">Soluciones en PVC</p>
-        
-                     </div>
- 
-                <div class="image-item">
-            <img src="images/moldura.png" alt="Imagen 5">
-            
-                 <p class="image-caption2">Molduras y Terminaciones</p>
-        
-                     </div>
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/tabiques.png" alt="Construccion en Seco" class="img-fluid zigzag-img">
+                </div>
+                <div class="col-md-6 zigzag-text-container">
+                    <h3 class="zigzag-title">Construcción en Seco</h3>
+                    <p class="text-secondary">Sistemas constructivos rápidos, limpios y eficientes. Ideales para optimizar tiempos de obra sin perder calidad estructural, adaptándose a cualquier tipo de proyecto residencial o comercial.</p>
+                </div>
+            </div>
 
-                <div class="image-item">
-            <img src="images/cielorrasos.png" alt="Imagen 6">
-            
-                 <p class="image-caption2">Cielorraso y tabiques Durlock</p>
-        
-                     </div>
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 order-2 order-md-1 zigzag-text-container">
+                    <h3 class="zigzag-title">Steel Framing</h3>
+                    <p class="text-secondary">Estructuras de acero galvanizado de alta resistencia. Una solución moderna que garantiza durabilidad, excelente aislamiento térmico y acústico, y un montaje preciso y seguro.</p>
+                </div>
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <img src="images/andres5.jpeg" alt="Steel Framing" class="img-fluid zigzag-img">
+                </div>
+            </div>
 
-               <div class="image-item">
-            <img src="images/cieloraso-pvc.png" alt="Imagen 7">
-            
-                 <p class="image-caption2">Cielorraso de PVC</p>
-        
-                     </div>
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/cieloraso-pvc.png" alt="Cielorraso de PVC" class="img-fluid zigzag-img">
+                </div>
+                <div class="col-md-6 zigzag-text-container">
+                    <h3 class="zigzag-title">Cielorraso de PVC</h3>
+                    <p class="text-secondary">Ideales para zonas húmedas o espacios comerciales. No requieren pintura, son fáciles de lavar y aportan un aspecto limpio y moderno al instante.</p>
+                </div>
+            </div>
 
-               <div class="image-item">
-            <img src="images/alucobond.png" alt="Imagen 8">
-            
-                 <p class="image-caption2">Alucobond</p>
-        
-                     </div>
-   
-                     </section>
-                       <section id="marcas" class="marcas-section py-5 bg-white">
-    <div class="container-fluid">
-      <h2 class="text-center mb-4">Trabajamos con marcas líderes</h2>
-      <div class="row justify-content-center align-items-center g-4">
-        <div class="col-6 col-md-2 text-center">
-          <img src="images/barbieri.png" alt="Barbieri" class="img-fluid brand-logo">
-        </div>
-        <div class="col-6 col-md-2 text-center">
-          <img src="images/Knauf.png" alt="Knauf" class="img-fluid brand-logo">
-        </div>
-        <div class="col-6 col-md-2 text-center">
-          <img src="images/Isover.png" alt="Isover" class="img-fluid brand-logo">
-        </div>
-        <div class="col-6 col-md-2 text-center">
-          <img src="images/fischer.png" alt="Fischer" class="img-fluid brand-logo">
-        </div>
-        <div class="col-6 col-md-2 text-center">
-          <img src="images/anclaflex.png" alt="Anclaflex" class="img-fluid brand-logo">
-        </div>
-          <div class="col-6 col-md-2 text-center">
-            <img src="images/Tornillos Tel.png" alt="Tornillos Tel" class="img-fluid brand-logo">
-          </div>
-      </div>
-    </div>
-                    
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 order-2 order-md-1 zigzag-text-container">
+                    <h3 class="zigzag-title">Cielorraso Desmontable</h3>
+                    <p class="text-secondary">La opción más práctica y estética para oficinas y locales. Permite un acceso rápido a las instalaciones eléctricas y de aire acondicionado ocultas, combinando funcionalidad con excelentes propiedades acústicas.</p>
+                </div>
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <img src="images/cielorrasodesmontable2.png" alt="Cielorraso Desmontable" class="img-fluid zigzag-img">
+                </div>
+            </div>
+
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/aislantes.png" alt="Aislaciones" class="img-fluid zigzag-img">
+                </div>
+                <div class="col-md-6 zigzag-text-container">
+                    <h3 class="zigzag-title">Aislaciones</h3>
+                    <p class="text-secondary">Protegé tu hogar de las temperaturas extremas y los ruidos molestos. Ofrecemos materiales de primera línea para garantizar el máximo confort y eficiencia energética en tus ambientes.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center zigzag-row">
+                <div class="col-md-6 order-2 order-md-1 zigzag-text-container">
+                    <h3 class="zigzag-title">Molduras y Terminaciones</h3>
+                    <p class="text-secondary">El detalle hace la diferencia. Contamos con una amplia variedad de molduras para darle a tus espacios un acabado elegante, profesional y completamente personalizado.</p>
+                </div>
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <img src="images/moldura.png" alt="Molduras y Terminaciones" class="img-fluid zigzag-img">
+                </div>
+            </div>
+
+            <div class="row align-items-center zigzag-row" style="margin-bottom: 2rem;">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/alucobond.png" alt="Alucobond" class="img-fluid zigzag-img">
+                </div>
+                <div class="col-md-6 zigzag-text-container">
+                    <h3 class="zigzag-title">Alucobond</h3>
+                    <p class="text-secondary">Paneles de aluminio compuesto de altísima calidad arquitectónica. Perfectos para fachadas modernas, marquesinas y revestimientos exteriores con máxima resistencia a la intemperie.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="marcas" class="marcas-section py-5 bg-white">
+            <div class="container-fluid">
+              <h2 class="text-center mb-4 fw-bold">Trabajamos con marcas líderes</h2>
+              <div class="row justify-content-center align-items-center g-4">
+                <div class="col-6 col-md-2 text-center">
+                  <img src="images/barbieri.png" alt="Barbieri" class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                  <img src="images/Knauf.png" alt="Knauf" class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                  <img src="images/Isover.png" alt="Isover" class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                  <img src="images/fischer.png" alt="Fischer" class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                  <img src="images/anclaflex.png" alt="Anclaflex" class="img-fluid brand-logo">
+                </div>
+                  <div class="col-6 col-md-2 text-center">
+                    <img src="images/Tornillos Tel.png" alt="Tornillos Tel" class="img-fluid brand-logo">
+                  </div>
+              </div>
+            </div>
+        </section>            
     </main>
-    <footer class="mt-auto">
-        <p>&copy; Casas Del Sur 2026</p>
+    
+    <footer class="mt-auto bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; Casas Del Sur 2026</p>
     </footer>
+    
     <script src="js/script2.js"></script>
 </body>
 </html>
-
-
-
-
