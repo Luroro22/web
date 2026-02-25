@@ -20,7 +20,7 @@
         /* Estilos para el contenedor de miniaturas en el Lightbox */
         .lightbox .thumbnails {
             display: flex;
-            flex-wrap: wrap; /* Permite que las fotos bajen a la siguiente fila */
+            flex-wrap: wrap; 
             justify-content: center; 
             align-items: center;
             gap: 6px; 
@@ -30,14 +30,12 @@
             margin: 0 auto; 
         }
 
-        /* Oculta la barra de scroll */
         .lightbox .thumbnails::-webkit-scrollbar {
             display: none;
         }
 
-        /* Estilos para cada imagen miniatura dentro del contenedor */
         .lightbox .thumbnails img {
-            width: calc(16.66% - 6px); /* Calculamos el ancho para que entren 6 por fila */
+            width: calc(16.66% - 6px); 
             max-width: 60px; 
             aspect-ratio: 1 / 1; 
             object-fit: cover; 
@@ -47,13 +45,11 @@
             transition: border-color 0.2s;
         }
 
-        /* Efecto cuando pasas el mouse o tocas la miniatura activa */
         .lightbox .thumbnails img.active, 
         .lightbox .thumbnails img:hover {
             border-color: #ffc107; 
         }
 
-        /* Ajuste específico para pantallas más grandes (PC) */
         @media (min-width: 768px) {
             .lightbox .thumbnails img {
                 width: 80px; 
@@ -85,7 +81,6 @@
             text-align: center;
         }
 
-        /* Estilo del botón fijo */
         .whatsapp-button {
           position: fixed;
           bottom: 20px; 
@@ -141,7 +136,6 @@
                 
             </div>
             <style>
-                /* Estilo para los enlaces */
                 a {
                     text-decoration: none; 
                     color: white; 
@@ -373,12 +367,12 @@
             </div>
             
             <div class="navigation">
-                <button id="prev-button" onclick="navigate(-1)">&lt;</button>
-                <button id="next-button" onclick="navigate(1)">&gt;</button>
+                <button id="prev-button" onclick="cambiarImagen(-1)">&lt;</button>
+                <button id="next-button" onclick="cambiarImagen(1)">&gt;</button>
             </div>
             
             <div class="thumbnails" id="thumbnails">
-                </div>
+            </div>
     
             <button id="close-button" onclick="closeLightbox()">&#10005;</button>
         </div>
@@ -391,34 +385,87 @@
     <script src="js/script2.js"></script>
 
     <script>
+        // Declaramos variables para controlar la animación
+        let isAnimating = false;
+        
+        // Función envoltorio para animar el cambio de imagen
+        window.cambiarImagen = function(direction) {
+            const lightboxImage = document.getElementById('lightbox-image');
+            
+            // Si ya se está animando o la foto actual no cargó, no hace nada
+            if (isAnimating || !lightboxImage.complete) return; 
+
+            isAnimating = true;
+
+            // 1. Animación de SALIDA (Se desliza hacia un costado y desaparece)
+            lightboxImage.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+            lightboxImage.style.transform = direction === 1 ? 'translateX(-40px)' : 'translateX(40px)';
+            lightboxImage.style.opacity = '0';
+
+            setTimeout(() => {
+                // 2. Ejecutamos la función original de tu script para cambiar la URL de la foto
+                if (typeof navigate === 'function') navigate(direction);
+
+                // 3. Movemos la nueva foto (invisible) al lado opuesto para prepararla para entrar
+                lightboxImage.style.transition = 'none';
+                lightboxImage.style.transform = direction === 1 ? 'translateX(40px)' : 'translateX(-40px)';
+
+                // Truco para forzar al navegador a aplicar los estilos instantáneos
+                void lightboxImage.offsetWidth;
+
+                // 4. Verificamos si la nueva foto ya está cargada
+                if (lightboxImage.complete) {
+                    mostrarNuevaImagen(lightboxImage);
+                } else {
+                    lightboxImage.onload = function() {
+                        mostrarNuevaImagen(lightboxImage);
+                    };
+                }
+            }, 200); // 200ms es el tiempo que tarda la animación de salida
+        };
+
+        // Función auxiliar para que la foto nueva aparezca deslizándose
+        function mostrarNuevaImagen(imgElement) {
+            imgElement.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+            imgElement.style.transform = 'translateX(0)';
+            imgElement.style.opacity = '1';
+            
+            setTimeout(() => {
+                isAnimating = false;
+                imgElement.onload = null; // Limpiamos el evento
+            }, 200);
+        }
+
+        // Lógica de detección de deslizamiento táctil (Swipe)
         document.addEventListener('DOMContentLoaded', function() {
-            // Cambiamos el detector específicamente a la imagen grande (.lightbox-content)
             const lightboxContent = document.querySelector('.lightbox-content');
             if(!lightboxContent) return;
 
             let touchStartX = 0;
             let touchEndX = 0;
 
+            // El usuario apoya el dedo en la foto
             lightboxContent.addEventListener('touchstart', function(event) {
                 touchStartX = event.changedTouches[0].screenX;
             }, { passive: true });
 
+            // El usuario levanta el dedo
             lightboxContent.addEventListener('touchend', function(event) {
                 touchEndX = event.changedTouches[0].screenX;
                 handleSwipe();
             }, { passive: true });
 
             function handleSwipe() {
-                const swipeThreshold = 50; // Distancia mínima para que lo considere un cambio de foto
+                const swipeThreshold = 50; // Píxeles mínimos a arrastrar para detectarlo
 
                 if (touchEndX < touchStartX - swipeThreshold) {
-                    // Deslizó a la izquierda
-                    if (typeof navigate === 'function') navigate(1);
+                    // Deslizó hacia la izquierda -> Siguiente imagen
+                    cambiarImagen(1);
                 }
                 
                 if (touchEndX > touchStartX + swipeThreshold) {
-                    // Deslizó a la derecha
-                    if (typeof navigate === 'function') navigate(-1);
+                    // Deslizó hacia la derecha -> Imagen anterior
+                    cambiarImagen(-1);
                 }
             }
         });
