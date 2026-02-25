@@ -9,85 +9,94 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- jQuery (solo necesario si usas Bootstrap 4) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="proyectos-page"> 
     <style>
-        /* Estilos para el contenedor de miniaturas en el Lightbox */
-        .lightbox .thumbnails {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
-            align-items: center;
-            gap: 6px; 
-            padding: 10px;
-            width: 100%;
-            max-width: 95vw; 
-            margin: 0 auto; 
-        }
+        /* Agrega esto al final de tu archivo main.css o en una etiqueta <style> en el head */
 
-        .lightbox .thumbnails::-webkit-scrollbar {
-            display: none;
-        }
+/* Estilos para el contenedor de miniaturas en el Lightbox */
+.lightbox .thumbnails {
+    display: flex;
+    justify-content: center; /* Centra las miniaturas si son pocas */
+    align-items: center;
+    gap: 10px; /* Espacio entre cada miniatura */
+    padding: 10px;
+    width: 100%;
+    max-width: 90vw; /* Evita que sea más ancho que la pantalla del celular */
+    margin: 0 auto; /* Lo centra horizontalmente */
+    
+    /* La magia para celulares: permite scroll horizontal si hay muchas fotos */
+    overflow-x: auto; 
+    overflow-y: hidden;
+    white-space: nowrap; /* Evita que las miniaturas bajen a una segunda línea */
+    
+    /* Estilos para ocultar la barra de scroll y que quede más estético (opcional) */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 
-        .lightbox .thumbnails img {
-            width: calc(16.66% - 6px); 
-            max-width: 60px; 
-            aspect-ratio: 1 / 1; 
-            object-fit: cover; 
-            border-radius: 5px; 
-            cursor: pointer;
-            border: 2px solid transparent; 
-            transition: border-color 0.2s;
-        }
+/* Oculta la barra de scroll en Chrome, Safari y Opera */
+.lightbox .thumbnails::-webkit-scrollbar {
+    display: none;
+}
 
-        .lightbox .thumbnails img.active, 
-        .lightbox .thumbnails img:hover {
-            border-color: #ffc107; 
-        }
+/* Estilos para cada imagen miniatura dentro del contenedor */
+.lightbox .thumbnails img {
+    flex: 0 0 auto; /* Evita que las imágenes se achiquen o estiren raro */
+    width: 60px; /* Ancho fijo para las miniaturas en móvil */
+    height: 60px; /* Alto fijo para mantenerlas cuadradas */
+    object-fit: cover; /* Recorta la imagen para que encaje perfecto en el cuadrado */
+    border-radius: 5px; /* Bordes un poco redondeados (opcional) */
+    cursor: pointer;
+    border: 2px solid transparent; /* Borde invisible por defecto */
+    transition: border-color 0.2s;
+}
 
-        @media (min-width: 768px) {
-            .lightbox .thumbnails img {
-                width: 80px; 
-                height: 80px;
-            }
-        }
+/* Efecto cuando pasas el mouse o tocas la miniatura activa */
+.lightbox .thumbnails img.active, 
+.lightbox .thumbnails img:hover {
+    border-color: #ffc107; /* Color amarillo para la foto seleccionada */
+}
 
-        /* Ocultar las flechas de navegación en celulares */
-        @media (max-width: 767px) {
-            .lightbox .navigation {
-                display: none !important;
-            }
-        }
+/* Ajuste específico para pantallas más grandes (PC) */
+@media (min-width: 768px) {
+    .lightbox .thumbnails img {
+        width: 80px; /* Miniaturas un poco más grandes en PC */
+        height: 80px;
+    }
+}
+                             .agregar-container {
+  margin-left: 35%;
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Espacio entre input y botón */
+  margin-top: 10px;
+}
 
-        .agregar-container {
-            margin-left: 35%;
-            display: flex;
-            align-items: center;
-            gap: 30px; 
-            margin-top: 10px;
-        }
-
-        .cantidad-input {
-            width: 60px;
-            padding: 5px;
-            font-size: 1rem;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-
+.cantidad-input {
+  width: 60px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+        /* Estilo del botón fijo */
         .whatsapp-button {
           position: fixed;
-          bottom: 20px; 
-          right: 20px;   
-          background-color: #25D366; 
+          bottom: 20px; /* Distancia desde la parte inferior */
+          right: 20px;   /* Distancia desde la izquierda */
+          background-color: #25D366; /* Color verde de WhatsApp */
           color: white;
-          border-radius: 50%; 
+          border-radius: 50%; /* Botón circular */
           width: 60px;
           height: 60px;
           display: flex;
@@ -95,28 +104,35 @@
           justify-content: center;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           text-decoration: none;
-          z-index: 1000; 
+          z-index: 1000; /* Asegura que esté encima de otros elementos */
           transition: transform 0.3s ease;
         }
     
         .whatsapp-button:hover {
-          transform: scale(1.1); 
+          transform: scale(1.1); /* Pequeña animación al pasar el mouse */
         }
     
         .whatsapp-button img {
-          width: 30px; 
+          width: 30px; /* Tamaño del icono */
           height: 30px;
         }
-        
+      </style>
+      <a 
+      href="https://wa.me/5492915326236" 
+      target="_blank" 
+      class="whatsapp-button" 
+      aria-label="Chat en WhatsApp"
+    >
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+        alt="WhatsApp"
+      />
+    </a>
+    <style>
         body{
             background-color:#d5d5d5;
         }
     </style>
-    
-    <a href="https://wa.me/5492915326236" target="_blank" class="whatsapp-button" aria-label="Chat en WhatsApp">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"/>
-    </a>
-    
      <header>
         <div class="header-top d-none d-md-flex">
             <div class="logo">
@@ -136,14 +152,15 @@
                 
             </div>
             <style>
+                /* Estilo para los enlaces */
                 a {
-                    text-decoration: none; 
-                    color: white; 
-                    font-size: 15px; 
+                    text-decoration: none; /* Quitar subrayado */
+                    color: white; /* Texto en negro */
+                    font-size: 15px; /* Ajusta el tamaño de la fuente */
                 }
         
                 a:hover {
-                    color: gray; 
+                    color: gray; /* Cambia a gris al pasar el cursor */
                 }
             </style>
         </div>
@@ -158,18 +175,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active" href="productos.html">PRODUCTOS</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
-                        <li><a href="htmlproductos/Chapas.html">Chapas</a></li>
-                        <li><a href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
-                        <li><a href="htmlproductos/Drywall.html">Drywall</a></li>
-                        <li><a href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
-                        <li><a href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
-                        <li><a href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
-                        <li><a href="htmlproductos/Zocalos.html">Zocalos</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="productos.html">PRODUCTOS</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                            <li><a href="htmlproductos/Chapas.html">Chapas</a></li>
+                            <li><a href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                            <li><a href="htmlproductos/Drywall.html">Drywall</a></li>
+                            <li><a href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                            <li><a href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                            <li><a href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                            <li><a href="htmlproductos/Zocalos.html">Zocalos</a></li>
+                        </ul>
+                    </li>   
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="proyectos.html">PROYECTOS</a>
@@ -261,15 +280,16 @@
     <main>
         <section id="galeria" class="image-grid2">
 
+            <!-- Tu grid de imágenes permanece igual -->
             <div class="image-item2">
                 <div class="overlay">
-                    <span class="text">Fachada de Alucobond</span>
+                    <span class="text">Fachada de Alucobond<span>
                 </div>
                 <img src="images/alucobond.png" alt="Imagen 1" class="main-image"
                      data-images='["images/alucobond.png", "images/alucobond2.png", "images/alucobond3.png","images/alucobond4.png","images/alucobond5.png"]'
                      data-title="Fachada Alucobond"
                      onclick="openLightbox(this)">
-                 <div class="overlay-text" onclick="openLightbox(this)">Obra Alucobond</div>
+                 <div  class="overlay-text" onclick="openLightbox(this)">Obra Alucobond</div>
             </div>
     
             <div class="image-item2">
@@ -291,33 +311,33 @@
                      data-images='["images/Lucciano1.jpg","images/Lucciano3.jpg","images/Lucciano5.jpg","images/Lucciano6.jpg","images/Lucciano7.jpg","images/Lucciano8.jpg" ]'
                      data-title="Obra Lucciano's"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Obra Lucciano's</div>
+                <div class="overlay-text" onclick="openLightbox(this)">CasaNova 2</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Planeta Empanada</span>
                 </div>
-                <img src="images/planeta1.png" alt="Imagen 4" class="main-image"
+                <img src="images/planeta1.png" alt="Imagen 3" class="main-image"
                      data-images='["images/planeta1.png","images/planeta2.png","images/planeta3.png"]'
                      data-title="Obra Planeta Empanada"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Obra Planeta Empanada</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Urquiza</span>
                 </div>
-                <img src="images/Urquiza1.png" alt="Imagen 5" class="main-image"
+                <img src="images/Urquiza1.png" alt="Imagen 3" class="main-image"
                      data-images='["images/Urquiza1.png","images/Urquiza2.png","images/Urquiza3.png","images/urquiza4.png"]'
                      data-title="Obra Urquiza"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Obra Urquiza</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Escribania</span>
                 </div>
-                <img src="images/escribania1.jpg" alt="Imagen 6" class="main-image"
+                <img src="images/escribania1.jpg" alt="Imagen 3" class="main-image"
                      data-images='["images/escribania1.jpg","images/escribania2.jpg","images/escribania3.jpg","images/escribania4.jpg"]'
                      data-title="Obra Escribania"
                      onclick="openLightbox(this)">
@@ -327,7 +347,7 @@
                 <div class="overlay">
                     <span class="text">Obra Cambaceres</span>
                 </div>
-                <img src="images/alquileres1.jpeg" alt="Imagen 7" class="main-image"
+                <img src="images/alquileres1.jpeg" alt="Imagen 3" class="main-image"
                      data-images='["images/alquileres1.jpeg","images/alquileres2.jpeg","images/alquileres3.jpeg","images/alquileres4.jpeg"]'
                      data-title="Obra Cambaceres"
                      onclick="openLightbox(this)">
@@ -337,7 +357,7 @@
                 <div class="overlay">
                     <span class="text">Obra Casa Steel</span>
                 </div>
-                <img src="images/andres11.jpeg" alt="Imagen 8" class="main-image"
+                <img src="images/andres11.jpeg" alt="Imagen 3" class="main-image"
                      data-images='["images/andres 1.jpeg","images/andres1.4.jpeg","images/andres2.jpeg","images/andres 3.jpeg","images/andres4.jpeg","images/andres5.jpeg","images/andres6.jpeg","images/andres7.jpeg","images/andres8.jpeg","images/andres9.jpeg","images/andres10.jpeg","images/andres11.jpeg"]'
                      data-title="Obra Casa Steel"
                      onclick="openLightbox(this)">
@@ -347,7 +367,7 @@
                 <div class="overlay">
                     <span class="text">Obra Chinelen</span>
                 </div>
-                <img src="images/chinelenfinal.jpeg" alt="Imagen 9" class="main-image"
+                <img src="images/chinelenfinal.jpeg" alt="Imagen 3" class="main-image"
                      data-images='["images/chinelen1.jpeg","images/chinelen2.jpeg","images/chinelen3.jpeg","images/chinelen4.jpeg","images/chinelenfinal.jpeg"]'
                      data-title="Obra Chinelen"
                      onclick="openLightbox(this)">
@@ -355,120 +375,43 @@
             </div>
         </section>
     
+        <!-- Lightbox Modal (actualizado) -->
         <div id="lightbox" class="lightbox">
+            <!-- Barra superior para texto -->
             <div class="lightbox-header">
                 <h2 id="lightbox-header-title"></h2>
                 <p id="lightbox-subtitle">Diseñado Y construido Por Casas Del Sur</p>
             </div>
             
+            <!-- Contenido principal -->
             <div class="lightbox-content">
-                <img id="lightbox-image" src="" alt="Imagen ampliada" style="touch-action: pan-y;">
+                <img id="lightbox-image" src="" alt="Imagen ampliada">
                 <div id="lightbox-title" class="lightbox-title"></div>
             </div>
             
+            <!-- Navegación -->
             <div class="navigation">
-                <button id="prev-button" onclick="cambiarImagen(-1)">&lt;</button>
-                <button id="next-button" onclick="cambiarImagen(1)">&gt;</button>
+                <button id="prev-button" onclick="navigate(-1)">&lt;</button>
+                <button id="next-button" onclick="navigate(1)">&gt;</button>
             </div>
             
+            <!-- Miniaturas -->
             <div class="thumbnails" id="thumbnails">
+                <!-- Miniaturas generadas dinámicamente -->
             </div>
     
+            <!-- Botón para cerrar -->
             <button id="close-button" onclick="closeLightbox()">&#10005;</button>
         </div>
         <script src="js/script.js"></script>
     </main>
     
+    
     <footer>
-        <p>&copy; Casas Del Sur 2026</p>
+        <p>&copy; Casas Del Sur 2025</p>
     </footer>
     <script src="js/script2.js"></script>
-
-    <script>
-        // Declaramos variables para controlar la animación
-        let isAnimating = false;
-        
-        // Función envoltorio para animar el cambio de imagen
-        window.cambiarImagen = function(direction) {
-            const lightboxImage = document.getElementById('lightbox-image');
-            
-            // Si ya se está animando o la foto actual no cargó, no hace nada
-            if (isAnimating || !lightboxImage.complete) return; 
-
-            isAnimating = true;
-
-            // 1. Animación de SALIDA (Se desliza hacia un costado y desaparece)
-            lightboxImage.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
-            lightboxImage.style.transform = direction === 1 ? 'translateX(-40px)' : 'translateX(40px)';
-            lightboxImage.style.opacity = '0';
-
-            setTimeout(() => {
-                // 2. Ejecutamos la función original de tu script para cambiar la URL de la foto
-                if (typeof navigate === 'function') navigate(direction);
-
-                // 3. Movemos la nueva foto (invisible) al lado opuesto para prepararla para entrar
-                lightboxImage.style.transition = 'none';
-                lightboxImage.style.transform = direction === 1 ? 'translateX(40px)' : 'translateX(-40px)';
-
-                // Truco para forzar al navegador a aplicar los estilos instantáneos
-                void lightboxImage.offsetWidth;
-
-                // 4. Verificamos si la nueva foto ya está cargada
-                if (lightboxImage.complete) {
-                    mostrarNuevaImagen(lightboxImage);
-                } else {
-                    lightboxImage.onload = function() {
-                        mostrarNuevaImagen(lightboxImage);
-                    };
-                }
-            }, 200); // 200ms es el tiempo que tarda la animación de salida
-        };
-
-        // Función auxiliar para que la foto nueva aparezca deslizándose
-        function mostrarNuevaImagen(imgElement) {
-            imgElement.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
-            imgElement.style.transform = 'translateX(0)';
-            imgElement.style.opacity = '1';
-            
-            setTimeout(() => {
-                isAnimating = false;
-                imgElement.onload = null; // Limpiamos el evento
-            }, 200);
-        }
-
-        // Lógica de detección de deslizamiento táctil (Swipe)
-        document.addEventListener('DOMContentLoaded', function() {
-            const lightboxContent = document.querySelector('.lightbox-content');
-            if(!lightboxContent) return;
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            // El usuario apoya el dedo en la foto
-            lightboxContent.addEventListener('touchstart', function(event) {
-                touchStartX = event.changedTouches[0].screenX;
-            }, { passive: true });
-
-            // El usuario levanta el dedo
-            lightboxContent.addEventListener('touchend', function(event) {
-                touchEndX = event.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-
-            function handleSwipe() {
-                const swipeThreshold = 50; // Píxeles mínimos a arrastrar para detectarlo
-
-                if (touchEndX < touchStartX - swipeThreshold) {
-                    // Deslizó hacia la izquierda -> Siguiente imagen
-                    cambiarImagen(1);
-                }
-                
-                if (touchEndX > touchStartX + swipeThreshold) {
-                    // Deslizó hacia la derecha -> Imagen anterior
-                    cambiarImagen(-1);
-                }
-            }
-        });
-    </script>
 </body>
 </html>
+
+
