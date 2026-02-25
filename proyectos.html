@@ -9,41 +9,90 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-   <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- jQuery (solo necesario si usas Bootstrap 4) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="proyectos-page"> 
     <style>
-                             .agregar-container {
-  margin-left: 35%;
-  display: flex;
-  align-items: center;
-  gap: 30px; /* Espacio entre input y botón */
-  margin-top: 10px;
-}
+        /* Estilos para el contenedor de miniaturas en el Lightbox */
+        .lightbox .thumbnails {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las fotos bajen a la siguiente fila */
+            justify-content: center; 
+            align-items: center;
+            gap: 6px; 
+            padding: 10px;
+            width: 100%;
+            max-width: 95vw; 
+            margin: 0 auto; 
+        }
 
-.cantidad-input {
-  width: 60px;
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
+        /* Oculta la barra de scroll */
+        .lightbox .thumbnails::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Estilos para cada imagen miniatura dentro del contenedor */
+        .lightbox .thumbnails img {
+            width: calc(16.66% - 6px); /* Calculamos el ancho para que entren 6 por fila */
+            max-width: 60px; 
+            aspect-ratio: 1 / 1; 
+            object-fit: cover; 
+            border-radius: 5px; 
+            cursor: pointer;
+            border: 2px solid transparent; 
+            transition: border-color 0.2s;
+        }
+
+        /* Efecto cuando pasas el mouse o tocas la miniatura activa */
+        .lightbox .thumbnails img.active, 
+        .lightbox .thumbnails img:hover {
+            border-color: #ffc107; 
+        }
+
+        /* Ajuste específico para pantallas más grandes (PC) */
+        @media (min-width: 768px) {
+            .lightbox .thumbnails img {
+                width: 80px; 
+                height: 80px;
+            }
+        }
+
+        /* Ocultar las flechas de navegación en celulares */
+        @media (max-width: 767px) {
+            .lightbox .navigation {
+                display: none !important;
+            }
+        }
+
+        .agregar-container {
+            margin-left: 35%;
+            display: flex;
+            align-items: center;
+            gap: 30px; 
+            margin-top: 10px;
+        }
+
+        .cantidad-input {
+            width: 60px;
+            padding: 5px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
         /* Estilo del botón fijo */
         .whatsapp-button {
           position: fixed;
-          bottom: 20px; /* Distancia desde la parte inferior */
-          right: 20px;   /* Distancia desde la izquierda */
-          background-color: #25D366; /* Color verde de WhatsApp */
+          bottom: 20px; 
+          right: 20px;   
+          background-color: #25D366; 
           color: white;
-          border-radius: 50%; /* Botón circular */
+          border-radius: 50%; 
           width: 60px;
           height: 60px;
           display: flex;
@@ -51,35 +100,28 @@
           justify-content: center;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           text-decoration: none;
-          z-index: 1000; /* Asegura que esté encima de otros elementos */
+          z-index: 1000; 
           transition: transform 0.3s ease;
         }
     
         .whatsapp-button:hover {
-          transform: scale(1.1); /* Pequeña animación al pasar el mouse */
+          transform: scale(1.1); 
         }
     
         .whatsapp-button img {
-          width: 30px; /* Tamaño del icono */
+          width: 30px; 
           height: 30px;
         }
-      </style>
-      <a 
-      href="https://wa.me/5492915326236" 
-      target="_blank" 
-      class="whatsapp-button" 
-      aria-label="Chat en WhatsApp"
-    >
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-        alt="WhatsApp"
-      />
-    </a>
-    <style>
+        
         body{
             background-color:#d5d5d5;
         }
     </style>
+    
+    <a href="https://wa.me/5492915326236" target="_blank" class="whatsapp-button" aria-label="Chat en WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"/>
+    </a>
+    
      <header>
         <div class="header-top d-none d-md-flex">
             <div class="logo">
@@ -101,13 +143,13 @@
             <style>
                 /* Estilo para los enlaces */
                 a {
-                    text-decoration: none; /* Quitar subrayado */
-                    color: white; /* Texto en negro */
-                    font-size: 15px; /* Ajusta el tamaño de la fuente */
+                    text-decoration: none; 
+                    color: white; 
+                    font-size: 15px; 
                 }
         
                 a:hover {
-                    color: gray; /* Cambia a gris al pasar el cursor */
+                    color: gray; 
                 }
             </style>
         </div>
@@ -122,20 +164,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="sobre-nosotros.html">NOSOTROS</a>
                 </li>
-                <li class="nav-item">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active" href="productos.html">PRODUCTOS</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
-                            <li><a href="htmlproductos/Chapas.html">Chapas</a></li>
-                            <li><a href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
-                            <li><a href="htmlproductos/Drywall.html">Drywall</a></li>
-                            <li><a href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
-                            <li><a href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
-                            <li><a href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
-                            <li><a href="htmlproductos/Zocalos.html">Zocalos</a></li>
-                        </ul>
-                    </li>   
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="productos.html">PRODUCTOS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="htmlproductos/Aislaciones.html">Aislaciones</a></li>
+                        <li><a href="htmlproductos/Chapas.html">Chapas</a></li>
+                        <li><a href="htmlproductos/cielorrasodesmontable.html">Cielorraso Desmontable</a></li>
+                        <li><a href="htmlproductos/Drywall.html">Drywall</a></li>
+                        <li><a href="htmlproductos/moldurayterminacion.html">Molduras</a></li>
+                        <li><a href="htmlproductos/SolucionPVC.html">Soluciones PVC</a></li>
+                        <li><a href="htmlproductos/SteelFrame.html">Steel Frame</a></li>
+                        <li><a href="htmlproductos/Zocalos.html">Zocalos</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="proyectos.html">PROYECTOS</a>
@@ -227,16 +267,15 @@
     <main>
         <section id="galeria" class="image-grid2">
 
-            <!-- Tu grid de imágenes permanece igual -->
             <div class="image-item2">
                 <div class="overlay">
-                    <span class="text">Fachada de Alucobond<span>
+                    <span class="text">Fachada de Alucobond</span>
                 </div>
                 <img src="images/alucobond.png" alt="Imagen 1" class="main-image"
                      data-images='["images/alucobond.png", "images/alucobond2.png", "images/alucobond3.png","images/alucobond4.png","images/alucobond5.png"]'
                      data-title="Fachada Alucobond"
                      onclick="openLightbox(this)">
-                 <div  class="overlay-text" onclick="openLightbox(this)">Obra Alucobond</div>
+                 <div class="overlay-text" onclick="openLightbox(this)">Obra Alucobond</div>
             </div>
     
             <div class="image-item2">
@@ -247,7 +286,7 @@
                      data-images='["images/Casasnova1.png", "images/Casasnova2.png", "images/Casasnova3.png", "images/Casasnova4.png"]'
                      data-title="Barra De Bar Casanova"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova</div>
+                <div class="overlay-text" onclick="openLightbox(this)">CasaNova</div>
             </div>
     
             <div class="image-item2">
@@ -258,33 +297,33 @@
                      data-images='["images/Lucciano1.jpg","images/Lucciano3.jpg","images/Lucciano5.jpg","images/Lucciano6.jpg","images/Lucciano7.jpg","images/Lucciano8.jpg" ]'
                      data-title="Obra Lucciano's"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Obra Lucciano's</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Planeta Empanada</span>
                 </div>
-                <img src="images/planeta1.png" alt="Imagen 3" class="main-image"
+                <img src="images/planeta1.png" alt="Imagen 4" class="main-image"
                      data-images='["images/planeta1.png","images/planeta2.png","images/planeta3.png"]'
                      data-title="Obra Planeta Empanada"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Obra Planeta Empanada</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Urquiza</span>
                 </div>
-                <img src="images/Urquiza1.png" alt="Imagen 3" class="main-image"
+                <img src="images/Urquiza1.png" alt="Imagen 5" class="main-image"
                      data-images='["images/Urquiza1.png","images/Urquiza2.png","images/Urquiza3.png","images/urquiza4.png"]'
                      data-title="Obra Urquiza"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Obra Urquiza</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
                     <span class="text">Obra Escribania</span>
                 </div>
-                <img src="images/escribania1.jpg" alt="Imagen 3" class="main-image"
+                <img src="images/escribania1.jpg" alt="Imagen 6" class="main-image"
                      data-images='["images/escribania1.jpg","images/escribania2.jpg","images/escribania3.jpg","images/escribania4.jpg"]'
                      data-title="Obra Escribania"
                      onclick="openLightbox(this)">
@@ -294,7 +333,7 @@
                 <div class="overlay">
                     <span class="text">Obra Cambaceres</span>
                 </div>
-                <img src="images/alquileres1.jpeg" alt="Imagen 3" class="main-image"
+                <img src="images/alquileres1.jpeg" alt="Imagen 7" class="main-image"
                      data-images='["images/alquileres1.jpeg","images/alquileres2.jpeg","images/alquileres3.jpeg","images/alquileres4.jpeg"]'
                      data-title="Obra Cambaceres"
                      onclick="openLightbox(this)">
@@ -304,7 +343,7 @@
                 <div class="overlay">
                     <span class="text">Obra Casa Steel</span>
                 </div>
-                <img src="images/andres11.jpeg" alt="Imagen 3" class="main-image"
+                <img src="images/andres11.jpeg" alt="Imagen 8" class="main-image"
                      data-images='["images/andres 1.jpeg","images/andres1.4.jpeg","images/andres2.jpeg","images/andres 3.jpeg","images/andres4.jpeg","images/andres5.jpeg","images/andres6.jpeg","images/andres7.jpeg","images/andres8.jpeg","images/andres9.jpeg","images/andres10.jpeg","images/andres11.jpeg"]'
                      data-title="Obra Casa Steel"
                      onclick="openLightbox(this)">
@@ -314,73 +353,75 @@
                 <div class="overlay">
                     <span class="text">Obra Chinelen</span>
                 </div>
-                <img src="images/chinelenfinal.jpeg" alt="Imagen 3" class="main-image"
+                <img src="images/chinelenfinal.jpeg" alt="Imagen 9" class="main-image"
                      data-images='["images/chinelen1.jpeg","images/chinelen2.jpeg","images/chinelen3.jpeg","images/chinelen4.jpeg","images/chinelenfinal.jpeg"]'
                      data-title="Obra Chinelen"
                      onclick="openLightbox(this)">
                 <div class="overlay-text" onclick="openLightbox(this)">Obra Chinelen</div>
             </div>
-           <div class="image-item2">
-                <div class="overlay">
-                    <span class="text">Obra VTV</span>
-                </div>
-                <img src="images/foto1.jpeg" alt="Imagen 3" class="main-image"
-                     data-images='["images/foto1.jpeg","images/foto2.jpeg","images/foto3.jpeg","images/foto4.jpeg","images/foto5.jpeg","images/foto6.jpeg"]'
-                     data-title="Obra VTV"
-                     onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Obra VTV</div>
-            </div> 
-           <div class="image-item2">
-                <div class="overlay">
-                    <span class="text">Obra Techo</span>
-                </div>
-                <img src="images/fototecho1.jpeg" alt="Imagen 3" class="main-image"
-                     data-images='["images/fototecho1.jpeg","images/fototecho2(recortar).png","images/fototecho3(recortar).png","images/fototecho4.jpeg"]'
-                     data-title="Obra Techo"
-                     onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">Obra Techo</div>
-            </div>              
         </section>
     
-        <!-- Lightbox Modal (actualizado) -->
         <div id="lightbox" class="lightbox">
-            <!-- Barra superior para texto -->
             <div class="lightbox-header">
                 <h2 id="lightbox-header-title"></h2>
                 <p id="lightbox-subtitle">Diseñado Y construido Por Casas Del Sur</p>
             </div>
             
-            <!-- Contenido principal -->
             <div class="lightbox-content">
-                <img id="lightbox-image" src="" alt="Imagen ampliada">
+                <img id="lightbox-image" src="" alt="Imagen ampliada" style="touch-action: pan-y;">
                 <div id="lightbox-title" class="lightbox-title"></div>
             </div>
             
-            <!-- Navegación -->
             <div class="navigation">
                 <button id="prev-button" onclick="navigate(-1)">&lt;</button>
                 <button id="next-button" onclick="navigate(1)">&gt;</button>
             </div>
             
-            <!-- Miniaturas -->
             <div class="thumbnails" id="thumbnails">
-                <!-- Miniaturas generadas dinámicamente -->
-            </div>
+                </div>
     
-            <!-- Botón para cerrar -->
             <button id="close-button" onclick="closeLightbox()">&#10005;</button>
         </div>
         <script src="js/script.js"></script>
     </main>
     
-    
     <footer>
         <p>&copy; Casas Del Sur 2026</p>
     </footer>
     <script src="js/script2.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cambiamos el detector específicamente a la imagen grande (.lightbox-content)
+            const lightboxContent = document.querySelector('.lightbox-content');
+            if(!lightboxContent) return;
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            lightboxContent.addEventListener('touchstart', function(event) {
+                touchStartX = event.changedTouches[0].screenX;
+            }, { passive: true });
+
+            lightboxContent.addEventListener('touchend', function(event) {
+                touchEndX = event.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Distancia mínima para que lo considere un cambio de foto
+
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Deslizó a la izquierda
+                    if (typeof navigate === 'function') navigate(1);
+                }
+                
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Deslizó a la derecha
+                    if (typeof navigate === 'function') navigate(-1);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
