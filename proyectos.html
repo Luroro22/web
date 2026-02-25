@@ -20,59 +20,6 @@
 </head>
 <body class="proyectos-page"> 
     <style>
-        /* Agrega esto al final de tu archivo main.css o en una etiqueta <style> en el head */
-
-/* Estilos para el contenedor de miniaturas en el Lightbox */
-.lightbox .thumbnails {
-    display: flex;
-    justify-content: center; /* Centra las miniaturas si son pocas */
-    align-items: center;
-    gap: 10px; /* Espacio entre cada miniatura */
-    padding: 10px;
-    width: 100%;
-    max-width: 90vw; /* Evita que sea más ancho que la pantalla del celular */
-    margin: 0 auto; /* Lo centra horizontalmente */
-    
-    /* La magia para celulares: permite scroll horizontal si hay muchas fotos */
-    overflow-x: auto; 
-    overflow-y: hidden;
-    white-space: nowrap; /* Evita que las miniaturas bajen a una segunda línea */
-    
-    /* Estilos para ocultar la barra de scroll y que quede más estético (opcional) */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* Oculta la barra de scroll en Chrome, Safari y Opera */
-.lightbox .thumbnails::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilos para cada imagen miniatura dentro del contenedor */
-.lightbox .thumbnails img {
-    flex: 0 0 auto; /* Evita que las imágenes se achiquen o estiren raro */
-    width: 60px; /* Ancho fijo para las miniaturas en móvil */
-    height: 60px; /* Alto fijo para mantenerlas cuadradas */
-    object-fit: cover; /* Recorta la imagen para que encaje perfecto en el cuadrado */
-    border-radius: 5px; /* Bordes un poco redondeados (opcional) */
-    cursor: pointer;
-    border: 2px solid transparent; /* Borde invisible por defecto */
-    transition: border-color 0.2s;
-}
-
-/* Efecto cuando pasas el mouse o tocas la miniatura activa */
-.lightbox .thumbnails img.active, 
-.lightbox .thumbnails img:hover {
-    border-color: #ffc107; /* Color amarillo para la foto seleccionada */
-}
-
-/* Ajuste específico para pantallas más grandes (PC) */
-@media (min-width: 768px) {
-    .lightbox .thumbnails img {
-        width: 80px; /* Miniaturas un poco más grandes en PC */
-        height: 80px;
-    }
-}
                              .agregar-container {
   margin-left: 35%;
   display: flex;
@@ -300,7 +247,7 @@
                      data-images='["images/Casasnova1.png", "images/Casasnova2.png", "images/Casasnova3.png", "images/Casasnova4.png"]'
                      data-title="Barra De Bar Casanova"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">CasaNova</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova</div>
             </div>
     
             <div class="image-item2">
@@ -311,7 +258,7 @@
                      data-images='["images/Lucciano1.jpg","images/Lucciano3.jpg","images/Lucciano5.jpg","images/Lucciano6.jpg","images/Lucciano7.jpg","images/Lucciano8.jpg" ]'
                      data-title="Obra Lucciano's"
                      onclick="openLightbox(this)">
-                <div class="overlay-text" onclick="openLightbox(this)">CasaNova 2</div>
+                <div class="overlay-text" onclick="openLightbox(this)">Casas Nova 2</div>
             </div>
             <div class="image-item2">
                 <div class="overlay">
@@ -373,6 +320,26 @@
                      onclick="openLightbox(this)">
                 <div class="overlay-text" onclick="openLightbox(this)">Obra Chinelen</div>
             </div>
+           <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Obra VTV</span>
+                </div>
+                <img src="images/foto1.jpeg" alt="Imagen 3" class="main-image"
+                     data-images='["images/foto1.jpeg","images/foto2.jpeg","images/foto3.jpeg","images/foto4.jpeg","images/foto5.jpeg","images/foto6.jpeg"]'
+                     data-title="Obra VTV"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Obra VTV</div>
+            </div> 
+           <div class="image-item2">
+                <div class="overlay">
+                    <span class="text">Obra Techo</span>
+                </div>
+                <img src="images/fototecho1.jpeg" alt="Imagen 3" class="main-image"
+                     data-images='["images/fototecho1.jpeg","images/fototecho2(recortar).png","images/fototecho3(recortar).png","images/fototecho4.jpeg"]'
+                     data-title="Obra Techo"
+                     onclick="openLightbox(this)">
+                <div class="overlay-text" onclick="openLightbox(this)">Obra Techo</div>
+            </div>              
         </section>
     
         <!-- Lightbox Modal (actualizado) -->
@@ -413,6 +380,5 @@
     <script src="js/script2.js"></script>
 </body>
 </html>
-
 
 
