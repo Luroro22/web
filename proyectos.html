@@ -83,6 +83,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi sólido */
             z-index: 9999; /* Por encima de cualquier navbar */
             flex-direction: column;
@@ -92,6 +93,9 @@
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s ease;
+            /* AGREGAR ESTAS DOS LÍNEAS */
+    overflow: hidden;
+    overscroll-behavior: contain;
         }
 
         .cds-lightbox.active {
@@ -209,6 +213,10 @@
 
         /* Responsive Móvil */
         @media (max-width: 768px) {
+           
+            .cds-lightbox {
+        padding-bottom: 40px; /* Margen extra para que la barra no tape las fotos */
+    }
             .cds-navigation {
                 display: none; /* Ocultamos flechas en móvil para usar el dedo */
             }
@@ -462,7 +470,9 @@
         // Abrir el Lightbox
         function cdsOpenLightbox(imgElement) {
             if(!imgElement.dataset.images) return; 
-
+             
+            // AGREGAR ESTA LÍNEA (Bloquea el scroll del fondo)
+             document.body.style.overflow = 'hidden';
             cdsCurrentImages = JSON.parse(imgElement.dataset.images || "[]");
             cdsCurrentIndex = 0;
             
@@ -477,6 +487,7 @@
         // Cerrar el Lightbox
         function cdsCloseLightbox() {
             cdsLightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         // Cambiar la imagen principal
